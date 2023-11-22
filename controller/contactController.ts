@@ -1,13 +1,11 @@
-import {Request, Response} from "express"
+import { Request, Response } from "express";
 import contactModel from "../model/contactModel";
-import { STATUS } from "../config/enums";
-
 
 export const createContact = async (req: Request, res: Response) => {
   try {
     const { name, phoneNumber, category } = req.body;
     const user = await contactModel.create({ name, phoneNumber, category });
-    return res.status(STATUS.CREATED).json({
+    return res.status(201).json({
       message: "Contact created successfully",
       data: user,
     });
