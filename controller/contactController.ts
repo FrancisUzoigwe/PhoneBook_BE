@@ -49,3 +49,39 @@ export const deleteContact = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const searchOneContactName = async (req: Request, res: Response) => {
+  try {
+    const { name } = req.body;
+    const contact = await contactModel.findOne({ name }).sort({
+      name: -1,
+    });
+    return res.status(200).json({
+      message: "User found",
+      data: contact,
+    });
+  } catch (error: any) {
+    return res.status(404).json({
+      message: "Account error occured while searching one account",
+      data: error?.message,
+    });
+  }
+};
+
+export const searchOneContactCategory = async (req: Request, res: Response) => {
+  try {
+    const { category } = req.body;
+    const contact = await contactModel.findOne({ name }).sort({
+      name: -1,
+    });
+    return res.status(200).json({
+      message: "User found",
+      data: contact,
+    });
+  } catch (error: any) {
+    return res.status(404).json({
+      message: "Account error occured while searching one account",
+      data: error?.message,
+    });
+  }
+};
