@@ -6,6 +6,7 @@ interface iContact {
   category: string;
 }
 
+
 interface iContactData extends iContact, Document {}
 
 const contactModel = new Schema<iContactData>(
