@@ -21,4 +21,16 @@ export const mainApp = (app: Application) => {
       });
     }
   });
+  app.get("/api", (req: Request, res: Response) => {
+    try {
+      return res.status(200).json({
+        message: "You're using Francis Kossyrisochukwu Uzoigwe's PhoneBookAPi",
+      });
+    } catch (error: any) {
+      return res.status(400).json({
+        message: "Error occured while using default get",
+        data: error?.message,
+      });
+    }
+  });
 };

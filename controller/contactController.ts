@@ -71,7 +71,7 @@ export const searchOneContactName = async (req: Request, res: Response) => {
 export const searchOneContactCategory = async (req: Request, res: Response) => {
   try {
     const { category } = req.body;
-    const contact = await contactModel.findOne({ name }).sort({
+    const contact = await contactModel.findOne({ category }).sort({
       name: -1,
     });
     return res.status(200).json({
